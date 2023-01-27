@@ -38,7 +38,7 @@ namespace apitienda.data.Repo
         public async Task<IEnumerable<Producto>> GetProductos()
         {
             var db = dbconexion();
-            var sql = @"SELECT * FROM productos";
+            var sql = @"SELECT * FROM productos WHERE flag = 0 order by idproducto ASC";
 
             return await db.QueryAsync<Producto>(sql, new { });
         }
